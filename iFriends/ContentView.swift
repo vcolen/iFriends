@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var users = [User]()
+    @Environment(\.managedObjectContext) var moc
+    
     let columns = [
         GridItem(.flexible(minimum: 300, maximum: 500))
     ]
@@ -51,6 +53,27 @@ struct ContentView: View {
             let decodedResponse = try decoder.decode([User].self, from: data)
             users = decodedResponse
             users.sort()
+            
+            for user in users {
+                let cachedUser = CachedUser(context: moc)
+                cachedUser.id = user.id
+                cachedUser.registered = user.registered
+                cachedUser.tags = user.tags.joined(separator: ",")
+                cachedUser.email = user.email
+                cachedUser.company = user.company
+                cachedUser.address = user.address
+                cachedUser.about = user.about
+                cachedUser.isActive = user.isActive
+                cachedUser.name = user.name
+                for friend in user.friends {
+                    let cachedFriend = CachedFriend(context: moc)
+                    cachedFriend.id = friend.id
+                    cachedFriend.name = friend.name
+                }
+            }
+            try? moc.save()
+            print("Saved successfully")
+            
         } catch {
             print(error)
         }
