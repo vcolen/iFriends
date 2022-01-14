@@ -7,42 +7,38 @@
 
 import SwiftUI
 
-struct User: Codable {
-    var id: UUID
-    var isActive: Bool
-    var name: String
-    var age: Int
-    var company: String
-    var email: String
-    var address: String
-    var about: String
-    var registered: String
-    var tags: [String]
-    var friends: [Friend]
-}
-
-struct Friend: Codable {
-    var id: UUID
-    var name: String
-}
-
 struct ContentView: View {
     @State private var users = [User]()
+    let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+    
     var body: some View {
-        List(users, id: \.id) { user in
-            VStack {
-                Text(user.name)
-                Text(user.company)
-                Text("\(user.age) years old")
-                Text("Friends: ")
-                ForEach(user.friends, id: \.id) { friend in
-                    Text(friend.name)
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(users, id: \.id) { user in
+                        NavigationLink {
+                            DetailUserView(user: user)
+                        } label: {
+                            HStack {
+                                Image(systemName: "circle.fill")
+                                    .foregroundColor(user.isActive ? .green : .red)
+                                Text(user.name)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("iFriends")
+            .task {
+                if users.isEmpty {
+                    await loadUsers()
                 }
             }
         }
-            .task {
-                await loadUsers()
-            }
     }
     
     func loadUsers() async  {
@@ -53,8 +49,10 @@ struct ContentView: View {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            let decodedResponse = try JSONDecoder().decode([User].self, from: data)
-            users = decodedResponse
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let decodedResponse = try decoder.decode([User].self, from: data)
+            users = decodedResponse            
         } catch {
             print(error)
         }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		796928ED2791104F008864D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796928EC2791104F008864D2 /* User.swift */; };
+		796928EF2791105D008864D2 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796928EE2791105D008864D2 /* Friend.swift */; };
+		796928F32791113B008864D2 /* DetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796928F22791113B008864D2 /* DetailUserView.swift */; };
 		79972F03279067E5003E364B /* iFriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79972F02279067E5003E364B /* iFriendsApp.swift */; };
 		79972F05279067E5003E364B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79972F04279067E5003E364B /* ContentView.swift */; };
 		79972F07279067E6003E364B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79972F06279067E6003E364B /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		796928EC2791104F008864D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		796928EE2791105D008864D2 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		796928F22791113B008864D2 /* DetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserView.swift; sourceTree = "<group>"; };
 		79972EFF279067E5003E364B /* iFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79972F02279067E5003E364B /* iFriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFriendsApp.swift; sourceTree = "<group>"; };
 		79972F04279067E5003E364B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +59,9 @@
 			children = (
 				79972F02279067E5003E364B /* iFriendsApp.swift */,
 				79972F04279067E5003E364B /* ContentView.swift */,
+				796928F22791113B008864D2 /* DetailUserView.swift */,
+				796928EC2791104F008864D2 /* User.swift */,
+				796928EE2791105D008864D2 /* Friend.swift */,
 				79972F06279067E6003E364B /* Assets.xcassets */,
 				79972F08279067E6003E364B /* Preview Content */,
 			);
@@ -139,6 +148,9 @@
 			files = (
 				79972F05279067E5003E364B /* ContentView.swift in Sources */,
 				79972F03279067E5003E364B /* iFriendsApp.swift in Sources */,
+				796928ED2791104F008864D2 /* User.swift in Sources */,
+				796928F32791113B008864D2 /* DetailUserView.swift in Sources */,
+				796928EF2791105D008864D2 /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
