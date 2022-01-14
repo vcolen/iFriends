@@ -10,28 +10,25 @@ import SwiftUI
 struct ContentView: View {
     @State private var users = [User]()
     let columns = [
-        GridItem(.adaptive(minimum: 150))
+        GridItem(.flexible(minimum: 300, maximum: 500))
     ]
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(users, id: \.id) { user in
-                        NavigationLink {
-                            DetailUserView(user: user)
-                        } label: {
-                            HStack {
-                                Image(systemName: "circle.fill")
-                                    .foregroundColor(user.isActive ? .green : .red)
-                                Text(user.name)
-                            }
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                        }
+            List(users, id: \.id) { user in
+                NavigationLink {
+                    DetailUserView(user: user)
+                } label: {
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(user.isActive ? .green : .red)
+                        Image(systemName: "person.circle.fill")
+                            .font(.largeTitle)
+                        Text(user.name)
                     }
                 }
             }
+            .listStyle(.plain)
             .navigationTitle("iFriends")
             .task {
                 if users.isEmpty {
@@ -52,7 +49,8 @@ struct ContentView: View {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             let decodedResponse = try decoder.decode([User].self, from: data)
-            users = decodedResponse            
+            users = decodedResponse
+            users.sort()
         } catch {
             print(error)
         }

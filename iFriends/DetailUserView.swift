@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailUserView: View {
     var user: User
     var body: some View {
-        VStack {
+        ScrollView {
             VStack(alignment: .center) {
                 Image(systemName: "person.circle.fill")
                     .resizable()
