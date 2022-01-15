@@ -48,6 +48,10 @@ extension CachedUser {
         id ?? UUID()
     }
     
+    public var wrappedName: String {
+        name ?? "N/A"
+    }
+    
     public var wrappedResgitered: Date {
         registered ?? Date.now
     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var users = [User]()
     @Environment(\.managedObjectContext) var moc
+    @ObservedObject var userPresence = UserPresence()
     
     let columns = [
         GridItem(.flexible(minimum: 300, maximum: 500))
@@ -17,23 +18,17 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(users, id: \.id) { user in
-                NavigationLink {
-                    DetailUserView(user: user)
-                } label: {
-                    HStack {
-                        Image(systemName: "circle.fill")
-                            .foregroundColor(user.isActive ? .green : .red)
-                        Image(systemName: "person.circle.fill")
-                            .font(.largeTitle)
-                        Text(user.name)
-                    }
+            Group {
+                if userPresence.isFirstLogin {
+                    NewUserList(users: users)
+                } else {
+                    CachedUserList()
                 }
             }
-            .listStyle(.plain)
             .navigationTitle("iFriends")
             .task {
-                if users.isEmpty {
+                if userPresence.isFirstLogin {
+                    print("First time opening the app")
                     await loadUsers()
                 }
             }
@@ -65,15 +60,18 @@ struct ContentView: View {
                 cachedUser.about = user.about
                 cachedUser.isActive = user.isActive
                 cachedUser.name = user.name
+                cachedUser.age = Int16(user.age)
                 for friend in user.friends {
                     let cachedFriend = CachedFriend(context: moc)
                     cachedFriend.id = friend.id
                     cachedFriend.name = friend.name
+                    cachedFriend.origin = cachedUser
                 }
             }
             try? moc.save()
             print("Saved successfully")
             
+            userPresence.isFirstLogin = false
         } catch {
             print(error)
         }

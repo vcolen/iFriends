@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailUserView: View {
+struct DetailNewUserView: View {
     var user: User
     var body: some View {
         ScrollView {
@@ -71,6 +71,6 @@ struct DetailUserView: View {
 
 struct DetailUserView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailUserView(user: User(id: UUID(), isActive: true, name: "milp", age: 23, company: "ioasys", email: "akjd", address: "alk", about: "alksaklsklasklkaslklasklakslkaslksal", registered: Date(timeIntervalSince1970: .zero), tags: ["a", "b"], friends: [Friend(id: UUID(), name: "milpeira")]))
+        DetailNewUserView(user: User(id: UUID(), isActive: true, name: "milp", age: 23, company: "ioasys", email: "akjd", address: "alk", about: "alksaklsklasklkaslklasklakslkaslksal", registered: Date(timeIntervalSince1970: .zero), tags: ["a", "b"], friends: [Friend(id: UUID(), name: "milpeira")]))
     }
 }

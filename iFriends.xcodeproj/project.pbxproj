@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		796928ED2791104F008864D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796928EC2791104F008864D2 /* User.swift */; };
 		796928EF2791105D008864D2 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796928EE2791105D008864D2 /* Friend.swift */; };
-		796928F32791113B008864D2 /* DetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796928F22791113B008864D2 /* DetailUserView.swift */; };
+		796928F32791113B008864D2 /* DetailNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796928F22791113B008864D2 /* DetailNewUserView.swift */; };
+		7987A66D279264AB00EC7C8E /* UserPresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7987A66C279264AB00EC7C8E /* UserPresence.swift */; };
+		7987A66F279265FA00EC7C8E /* CachedUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7987A66E279265FA00EC7C8E /* CachedUserList.swift */; };
+		7987A6712792660400EC7C8E /* NewUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7987A6702792660400EC7C8E /* NewUserList.swift */; };
+		7987A67327926C8500EC7C8E /* DetailCachedUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7987A67227926C8500EC7C8E /* DetailCachedUserView.swift */; };
 		79972F03279067E5003E364B /* iFriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79972F02279067E5003E364B /* iFriendsApp.swift */; };
 		79972F05279067E5003E364B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79972F04279067E5003E364B /* ContentView.swift */; };
 		79972F07279067E6003E364B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79972F06279067E6003E364B /* Assets.xcassets */; };
@@ -25,7 +29,11 @@
 /* Begin PBXFileReference section */
 		796928EC2791104F008864D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		796928EE2791105D008864D2 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		796928F22791113B008864D2 /* DetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserView.swift; sourceTree = "<group>"; };
+		796928F22791113B008864D2 /* DetailNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewUserView.swift; sourceTree = "<group>"; };
+		7987A66C279264AB00EC7C8E /* UserPresence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresence.swift; sourceTree = "<group>"; };
+		7987A66E279265FA00EC7C8E /* CachedUserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedUserList.swift; sourceTree = "<group>"; };
+		7987A6702792660400EC7C8E /* NewUserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserList.swift; sourceTree = "<group>"; };
+		7987A67227926C8500EC7C8E /* DetailCachedUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCachedUserView.swift; sourceTree = "<group>"; };
 		79972EFF279067E5003E364B /* iFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79972F02279067E5003E364B /* iFriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFriendsApp.swift; sourceTree = "<group>"; };
 		79972F04279067E5003E364B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +58,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7987A67427926ECB00EC7C8E /* Cached Views */ = {
+			isa = PBXGroup;
+			children = (
+				7987A66E279265FA00EC7C8E /* CachedUserList.swift */,
+				7987A67227926C8500EC7C8E /* DetailCachedUserView.swift */,
+			);
+			path = "Cached Views";
+			sourceTree = "<group>";
+		};
+		7987A67527926EDB00EC7C8E /* New Views */ = {
+			isa = PBXGroup;
+			children = (
+				796928F22791113B008864D2 /* DetailNewUserView.swift */,
+				7987A6702792660400EC7C8E /* NewUserList.swift */,
+			);
+			path = "New Views";
+			sourceTree = "<group>";
+		};
 		79972EF6279067E5003E364B = {
 			isa = PBXGroup;
 			children = (
@@ -72,8 +98,10 @@
 				79972F02279067E5003E364B /* iFriendsApp.swift */,
 				799AA5342791C330002E1A23 /* DataModel */,
 				79972F04279067E5003E364B /* ContentView.swift */,
-				796928F22791113B008864D2 /* DetailUserView.swift */,
+				7987A67427926ECB00EC7C8E /* Cached Views */,
+				7987A67527926EDB00EC7C8E /* New Views */,
 				796928EC2791104F008864D2 /* User.swift */,
+				7987A66C279264AB00EC7C8E /* UserPresence.swift */,
 				796928EE2791105D008864D2 /* Friend.swift */,
 				79972F06279067E6003E364B /* Assets.xcassets */,
 				79972F08279067E6003E364B /* Preview Content */,
@@ -173,16 +201,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				799AA51B2791BC7B002E1A23 /* DataController.swift in Sources */,
+				7987A66F279265FA00EC7C8E /* CachedUserList.swift in Sources */,
 				799AA5312791C324002E1A23 /* CachedFriend+CoreDataProperties.swift in Sources */,
 				799AA5332791C324002E1A23 /* CachedUser+CoreDataProperties.swift in Sources */,
 				79972F05279067E5003E364B /* ContentView.swift in Sources */,
+				7987A67327926C8500EC7C8E /* DetailCachedUserView.swift in Sources */,
 				79972F03279067E5003E364B /* iFriendsApp.swift in Sources */,
 				796928ED2791104F008864D2 /* User.swift in Sources */,
-				796928F32791113B008864D2 /* DetailUserView.swift in Sources */,
+				796928F32791113B008864D2 /* DetailNewUserView.swift in Sources */,
+				7987A66D279264AB00EC7C8E /* UserPresence.swift in Sources */,
 				799AA5322791C324002E1A23 /* CachedUser+CoreDataClass.swift in Sources */,
 				796928EF2791105D008864D2 /* Friend.swift in Sources */,
 				799AA5302791C324002E1A23 /* CachedFriend+CoreDataClass.swift in Sources */,
 				799AA5192791BA8B002E1A23 /* iFriends.xcdatamodeld in Sources */,
+				7987A6712792660400EC7C8E /* NewUserList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
